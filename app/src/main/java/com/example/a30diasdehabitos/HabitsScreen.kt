@@ -52,11 +52,12 @@ fun HabitCardList(habitList: List<Habit>, paddingValues: PaddingValues, modifier
 fun HabitCard(habit: Habit, dayNum: Int, modifier: Modifier = Modifier) {
     var expanded by remember { mutableStateOf(false) }
 
-    Card(modifier = modifier) {
+    Card(modifier = modifier
+        .clickable { expanded = !expanded }
+    ) {
         Column(
             modifier = Modifier
                 .padding(12.dp)
-                .clickable { expanded = !expanded }
                 .animateContentSize(
                     animationSpec = spring(
                         dampingRatio = Spring.DampingRatioNoBouncy,
